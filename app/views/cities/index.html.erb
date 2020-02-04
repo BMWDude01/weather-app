@@ -1,2 +1,10 @@
-<h1>Cities#index</h1>
-<p>Find me in app/views/cities/index.html.erb</p>
+<% @cities.each do |city| %>
+  <div class="booyah-box col-10 offset-1">
+    <h1><%= link_to city.name, city_path(city) %></h1><br />
+    <i><%= city.state %></i><br /><br />
+
+    <% if city.user.present? %>
+      <small><%= city.user.email %></small>
+    <% end %>
+  </div>
+<% end %>

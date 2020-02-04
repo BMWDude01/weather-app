@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'cities/new'
-  get 'cities/index'
-  get 'cities/show'
+  resources :cities, only: %w[new index show create]
   devise_for :users
   root 'dashboard#index'
 end

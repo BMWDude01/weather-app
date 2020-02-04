@@ -1,2 +1,8 @@
-<h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
+<br />
+<h1>Tucson</h1>
+<p>Weather Forecast</p>
+Current Tempature: <%= @city.current_temp["temp"] %>
+<br /> 
+Feels Like: <%= @city.current_temp["feels_like"] %>
+<br /> 
+Current Weather: <%= @city.current_weather["main"] %>
