@@ -1,8 +1,10 @@
 <br />
-<h1>Tucson</h1>
-<p>Weather Forecast</p>
+<h1><%= @city.name %></h1> 
+<p>Weather Forecast
+<br />
 Current Tempature: <%= @city.current_temp["temp"] %>
 <br /> 
 Feels Like: <%= @city.current_temp["feels_like"] %>
 <br /> 
 Current Weather: <%= @city.current_weather["main"] %>
+</p>

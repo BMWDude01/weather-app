@@ -1,0 +1,13 @@
+list:
+
+1.create a city page(new.html.erb)
+2.make a city show page(leverage @city.current_weather_obj)
+3.make 5_day_forcast_obj (city.rb)
+4.styling the master.scss
+5.find different image for weather status
+6. do lesson 24 from nomster
+
+
+
+
+
