@@ -1,10 +1,27 @@
 <br />
-<h1><%= @city.name %></h1> 
-<p>Weather Forecast
-<br />
-Current Tempature: <%= @city.current_temp["temp"] %>
-<br /> 
-Feels Like: <%= @city.current_temp["feels_like"] %>
-<br /> 
-Current Weather: <%= @city.current_weather["main"] %>
-</p>
+<h1><%= @city.name %> <%= sanitize icon_for_code(@city.current_weather["id"]) %></h1> 
+<div class=row>
+  <div class='col-sm-6'>
+    <p>Weather Forecast
+    <br />
+    Current Tempature: <%= @city.current_temp["temp"] %>
+    <br /> 
+    Feels Like: <%= @city.current_temp["feels_like"] %>
+    <br /> 
+    Current Weather: <%= @city.current_weather["main"] %>
+    </p>
+  </div>  
+
+  <div class='col-sm-6'>
+    <% @city.filtered_five_day_forecast_list.each do |forecast| %>
+      <div class='booyah-box'>
+        <span><%= pretty_name_for_dt(forecast['dt']) %>:</span><%= sanitize icon_for_code(forecast['weather'][0]['id']) %>
+        <%= forecast['weather'][0]['description'] %>
+        <!-- <%= forecast['wind']['speed'] %> -->
+          <br />
+          <span>High: </span><%= forecast['main']['temp_min'] %>
+          <span>Low: </span><%= forecast['main']['temp_max'] %>
+      </div>
+    <% end %>
+  </div>  
+</div>  
