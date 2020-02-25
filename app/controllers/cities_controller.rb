@@ -5,8 +5,13 @@ class CitiesController < ApplicationController
     @city = City.new
   end
 
-  def index
+  def all_cities
     @cities = City.all
+    render :index
+  end
+
+  def index
+    @cities = user_signed_in? ? current_user.cities : City.all
   end
 
   def show
