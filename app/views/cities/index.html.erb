@@ -1,6 +1,9 @@
 <% @cities.each do |city| %>
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to city.name, city_path(city) %></h1><br />
+    <% if @delete_btn || true%>
+      <%=link_to "delete", city_path(city), method: :delete %>
+    <% end %>
     <i><%= city.state %></i><br /><br />
 
     <% if city.user.present? %>

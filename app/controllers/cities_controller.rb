@@ -10,7 +10,20 @@ class CitiesController < ApplicationController
     render :index
   end
 
+  def destroy
+    @city=City.find(params[:id])
+    if @city.user_id != current_user&.id
+      flash[:notice] = "Thats Not Your City"
+      return redirect_to root_path
+    end
+    @city.delete
+
+    flash[:notice] = "City Deleted"
+    redirect_to root_path
+  end  
+
   def index
+    @delete_btn= true
     @cities = user_signed_in? ? current_user.cities : City.all
   end
 
